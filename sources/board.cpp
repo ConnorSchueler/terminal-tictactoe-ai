@@ -5,6 +5,7 @@
 Board::Board(): board(BOARD_SIZE, ' '){}
 
 void Board::printBoard(){
+    std::cout << "\033[2J\033[1;1H";  // clear screen
     for (unsigned i=0; i<BOARD_SIZE; i++){
         std::cout << '[' << board[i] << ']';
         if ((i+1)%3==0){
