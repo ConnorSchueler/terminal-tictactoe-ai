@@ -13,6 +13,8 @@ class Board {
     bool isFull();
     bool placeMove(int position, char player);
     bool checkWin(char player);
+    void undoMove(int position);
+    int evaluate(char aiPlayer, char humanPlayer);
 };
 
 #endif

@@ -2,8 +2,8 @@ CXX = g++
 CXX_FLAGS = -std=c++20 -Wall -Wextra -Wshadow -Iinclude
 TARGET = tictactoe-ai
 
-SOURCES = sources/main.cpp sources/board.cpp
-HEADERS = include/board.hpp include/macros.hpp
+SOURCES = sources/main.cpp sources/board.cpp sources/ai.cpp
+HEADERS = include/board.hpp include/macros.hpp include/ai.hpp
 
 $(TARGET): $(SOURCES) $(HEADERS)
 	$(CXX) $(CXX_FLAGS) $(SOURCES) -o $(TARGET)

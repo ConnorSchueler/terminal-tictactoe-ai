@@ -42,3 +42,13 @@ bool Board::checkWin(char player){
         (board[6]==player and board[4]==player and board[2]==player)
     );
 }
+
+void Board::undoMove(int position){
+    board[position]=' ';
+}
+
+int Board::evaluate(char aiPlayer, char humanPlayer){
+    if(checkWin(aiPlayer)){return 10;}
+    if(checkWin(humanPlayer)){return -10;}
+    return 0;
+}
