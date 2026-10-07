@@ -1,6 +1,7 @@
 #include "board.hpp"
 #include "ai.hpp"
 #include <iostream>
+#include <limits>
 
 int main(){
     Board board;
@@ -32,7 +33,7 @@ int main(){
             // handle letters or symbols
             if(std::cin.fail()){
                 std::cin.clear(); // clear failing status
-                std::cin.ignore(1000, '\n'); // delete wrong input in buffer
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // delete wrong input in buffer
                 std::cout << "Invalid input! Press Enter to continue...";
                 std::cin.get();
                 continue;
@@ -40,13 +41,12 @@ int main(){
 
             if(!board.placeMove(chosenPosition-1, currentPlayer)){
                 std::cout << "Invalid position! Try again! Press Enter to continue..." << std::endl;
-                std::cin.ignore(1000, '\n'); // delete wrong input in buffer
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // delete wrong input in buffer
                 std::cin.get();
                 continue;
             };
         }else {
             // ai playing
-            std::cout << "AI is thinking..." << std::endl;
             int aiMove = AI::getBestMove(board, aiPlayer, humanPlayer);
             board.placeMove(aiMove, aiPlayer);
         }
